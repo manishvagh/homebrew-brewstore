@@ -1,18 +1,53 @@
-# Manishvagh Brewstore
+# Homebrew tap for BrewStore
 
-## How do I install these formulae?
+Official [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) does not accept unsigned apps. BrewStore ships unsigned, so this tap is the Homebrew install path.
 
-`brew install manishvagh/brewstore/<formula>`
+**App:** [brewstore.app](https://brewstore.app/) · **Source:** [BrewStore-by-Manish-Vagh](https://github.com/manishvagh/BrewStore-by-Manish-Vagh)
 
-Or `brew tap manishvagh/brewstore` and then `brew install <formula>`.
+## Install (Apple Silicon)
 
-Or, in a `brew bundle` `Brewfile`:
-
-```ruby
-tap "manishvagh/brewstore"
-brew "<formula>"
+```bash
+brew install --cask manishvagh/brewstore/brewstore
 ```
 
-## Documentation
+That command taps this repo and trusts only the BrewStore cask (Homebrew 6 tap trust).
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+Or:
+
+```bash
+brew tap manishvagh/brewstore
+brew trust --cask manishvagh/brewstore/brewstore
+brew install --cask brewstore
+```
+
+Upgrade later with:
+
+```bash
+brew update && brew upgrade --cask brewstore
+```
+
+BrewStore can also update itself from **Updates** in the app.
+
+## Uninstall
+
+```bash
+brew uninstall --cask brewstore
+```
+
+Remove leftover files:
+
+```bash
+brew uninstall --cask --zap brewstore
+```
+
+## Why not `brew install --cask brewstore` from core?
+
+Homebrew is dropping official casks that fail Gatekeeper (unsigned / unnotarized). BrewStore is MIT and open source, but the DMG is not Apple-signed. This tap is the supported Homebrew distribution until a signed build exists.
+
+## Maintainers
+
+Bump `Casks/brewstore.rb` `version` and `sha256` when a GitHub release is published:
+
+```bash
+shasum -a 256 BrewStore-VERSION-arm64.dmg
+```
