@@ -1,6 +1,6 @@
 cask "brewstore" do
-  version "1.3.7"
-  sha256 "8291842720b5150d6c4826037ae7366c98fbb6983edcfc288e5a3c3045568326"
+  version "1.3.8"
+  sha256 "d8a11ea2b308d4ae57b8cc11e65956784318cf7cae6f5db0e0865c00eedca4e5"
 
   url "https://github.com/manishvagh/BrewStore-by-Manish-Vagh/releases/download/v#{version}/BrewStore-#{version}-arm64.dmg",
       verified: "github.com/manishvagh/BrewStore-by-Manish-Vagh/"
